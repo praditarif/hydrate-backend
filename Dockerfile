@@ -10,11 +10,17 @@ COPY package*.json ./
 # Instal dependensi aplikasi
 RUN npm install
 
-# Salin kode sumber aplikasi
+# SALIN SKEMA PRISMA TERLEBIH DAHULU
+COPY ./prisma ./prisma
+
+# SEKARANG JALANKAN PRISMA GENERATE
+RUN npx prisma generate
+
+# Salin sisa kode sumber aplikasi
 COPY . .
 
 # Buka port agar bisa diakses dari luar kontainer
 EXPOSE 3000
 
 # Definisikan perintah untuk menjalankan aplikasi Anda
-CMD [ "node", "server.js" ]
+CMD [ "npm", "start" ]
