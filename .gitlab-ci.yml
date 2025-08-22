@@ -1,0 +1,14 @@
+# File ini adalah resep untuk pipeline Anda
+
+stages:
+  - test
+
+# Nama pekerjaan
+test_runner_job:
+  stage: test
+  tags:
+    - docker # Tag ini akan memastikan job dijalankan oleh runner baru Anda
+  script:
+    - echo "Hello from the new Armbian runner!"
+    - echo "Runner is working correctly."
+    - node --version
