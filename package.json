@@ -1,8 +1,11 @@
 {
   "name": "hydrate-backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "src/server.js",
   "scripts": {
+    "start": "node src/server.js",
+    "dev": "dotenv -e .env.local -- nodemon src/server.js",
+    "migrate:dev": "dotenv -e .env.local -- npx prisma migrate dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,9 +14,20 @@
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.12.0",
+    "axios": "^1.11.0",
+    "bcrypt": "^6.0.0",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.1",
     "pg": "^8.16.3",
+    "redis": "^5.8.2",
     "zod": "^4.0.10"
+  },
+  "devDependencies": {
+    "dotenv-cli": "^10.0.0",
+    "jest": "^30.0.5",
+    "nodemon": "^3.1.10",
+    "supertest": "^7.1.4"
   }
 }
